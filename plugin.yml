@@ -1,0 +1,78 @@
+name: GPClaimManager
+main: com.github.leezallen.GPClaimManager.GPClaimManager
+version: 1.2b
+author: leezallen
+depend: [GriefPrevention, Vault]
+
+commands:
+  cshowid:
+    description: Shows the ID of the plot at the current location.
+    usage: /cshowid
+    permission: GPClaimManager.commands.cshowid
+  csell:
+    description: Sell the current plot for the amount specified.
+    usage: /csell <Amount>
+    permission: GPClaimManager.sell
+  crent:
+    description: Rent the current plot for the amount specified per Minecraft day.
+    usage: /crent <Amount> or /crent cancel
+    permission: GPClaimManager.sell
+  ccancel:
+    description: Stop the current plot from being sold or rented.
+    usage: /ccancel
+    permission: GPClaimManager.sell
+  cbuy:
+    description: Buy or rent the plot at the current location.
+    usage: /cbuy
+    permission: GPClaimManager.buy
+  cevict:
+    description: Evict all players from the current plot
+    usage: /cevict
+    permission: GPClaimManager.commands.cevict
+  cflag:
+    description: Sets a flag for the current region
+    usage: /cflag <flag> <value> or /cflag
+permissions:
+  GPClaimManager.*:
+    description: Gives access to all GPClaimManagerfunctions.
+    default: op
+    children:
+      GPClaimManager.sell: true
+      GPClaimManager.buy: true
+      GPClaimManager.admin: true
+  GPClaimManager.sell:
+    description: Allows player to sell claims and subclaims.
+    default: true
+  GPClaimManager.buy:
+    description: Allows player to buy claims and lease subclaims.
+    default: true
+  GPClaimManager.commands.cshowid:
+    description: Allows access to the CShowID command
+    default: true
+  GPClaimManager.commands.cevict:
+    description: Allows player to evict all players from the current rented plot if they are the owner
+    default: true
+  GPClaimManager.cflag.*:
+    description: Gives access to change all of the GPClaimManager functions.
+    default: op
+    children:
+        GPClaimManager.cflag.doMobSpawn: true
+        GPClaimManager.cflag.EntryText:true
+        GPClaimManager.cflag.ExitText:true
+        GPClaimManager.cflag.doAllowPVP:true
+        GPClaimManager.cflag.doAllowEntry:true
+  GPClaimManager.cflag.doMobSpawn: 
+    description: Allows the user to use the doMobSpawn flag.
+    default: false
+  GPClaimManager.cflag.EntryText:
+    description: Allows the user to set Entry Text on their claim.
+    default: false
+  GPClaimManager.cflag.ExitText:
+    description: Allows the user to set Exit Text on their claim.
+    default: false
+  GPClaimManager.cflag.doAllowEntry:
+    description: Allows the user to use the doAllowEntry.
+    default: false
+  GPClaimManager.cflag.doAllowPVP:
+    description: Allows the user to use the doAllowPVP.
+    default: false

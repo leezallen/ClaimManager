@@ -1,0 +1,33 @@
+# This is the configuration file for GPClaimManager.
+# If you have any extra features you would like included in this plugin
+# please let me know on 
+Version: 1.2b
+ClaimEventManagement:
+   # To reduce lag you can set Movement to false. However events
+   # and flags that rely on this will not be processed. i.e.
+   # entrytext, exittext, etc.
+   Movement: TRUE
+   # The mobspawn flag tells GPClaimManager whether or not to monitor
+   # mobspawn events and process the doMobSpawn flag. If this is disabled
+   # then checking will be turned off (reducing lagg) but the doMobSpawn
+   # flag will not be processed.
+   Mobspawn: TRUE
+   # This will only be valid if Movement=True - This is needed to
+   # allow the doAllowEntry flag to work. This is not currently used
+   # and is work in progress
+   Entry: FALSE
+   # Allow people to set the ability to check damage flags within claims.
+   # includes doNoPVP, doNoHunger, doNoDamage
+   # This flag is disabled by default and is processor intensive. Do not enable
+   # unless you need these flags.
+   Damage: FALSE
+AllowedMobs:
+   - Pig
+   - Sheep
+   - Cow
+   - Chicken
+   - Squid
+   - Wolf
+   - MushroomCow
+   - Villager
+MinYStopMobSpawn: 40
